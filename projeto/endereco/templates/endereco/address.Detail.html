@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Detalhes</legend>
+        <p>CEP: {{ address.cep }}</p>
+        <p>Logradouro: {{ address.logradouro }}</p>
+        <p> Bairoo: {{ address.bairro }}</p>
+        <p>Cidade: {{ address.localidade }}</p>
+        <p>UF: {{ address.uf }}</p>
+
+        <button><a href="{% url 'endereco:atualizar' address.id %}">Editar</a></button>
+        <button><a href="{% url 'endereco:deletar' address.id %}">Remover</a></button>
+        <button><a href="{% url 'endereco:listar' %}">Listar</a></button>
+    </fieldset>
+</body>
+</html>

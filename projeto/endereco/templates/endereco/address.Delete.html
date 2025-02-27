@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remover</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Confirme a remoção:</legend>
+        <form action="{% url 'endereco:deletar' address.id %}" method="post">
+            {% csrf_token %}
+            <p>CEP: {{ address.cep }}</p>
+            <p>Logradouro: {{ address.logradouro }}</p>
+            <p>Bairro: {{ address.bairro }}</p>
+            <p>Cidade: {{ address.localidade }}</p>
+            <p>UF: {{ address.uf }}</p>
+            <button><a href="{% url 'endereco:listar'}">Lista</a></button>
+            <button type="submit">Remover</button>
+        </form>
+    </fieldset>
+</body>
+</html>

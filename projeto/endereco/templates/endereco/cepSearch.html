@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar e Salvar CEP</title>
+</head>
+<body>
+    <fieldset>
+        <br>
+        <h1>Digite seu CEP para busca:</h1>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            {% if not form.inital.logradouro %}
+                <p>{{ form.cep.label_tag }}</p>
+                <br>
+                <p>{{ form.cep }}</p>
+                <button type="submit">Buscar</button>
+            {% else %}
+                {{ form.as_p}}
+            {% endif %}
+        </form>
+    </fieldset>
+</body>
+</html>
